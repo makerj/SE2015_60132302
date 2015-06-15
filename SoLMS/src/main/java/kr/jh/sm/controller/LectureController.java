@@ -50,8 +50,17 @@ public class LectureController {
 		// Prevent CSRF Attack
 		if (!session.getAttribute("id").equals(sessionId))
 			return "redirect:/";
-		
+		if(grade.equals("A+")||
+				grade.equals("A0")||
+				grade.equals("B+")||
+				grade.equals("B0")||
+				grade.equals("C+")||
+				grade.equals("C0")||
+				grade.equals("D+")||
+				grade.equals("D0")||
+				grade.equals("F"))
 		lecGrade.updateGrading(lectureId, studentId, grade);
+		else return "error";
 		
 		return "redirect:/LectureController/grading";
 	}
